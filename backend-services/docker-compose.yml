@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "3001:3001" # Host:Container
+    env_file:
+      - ./.env # Shared .env file in backend-services directory
+    volumes:
+      # For development: mount source code for live reload with nodemon
+      # For production: remove this volume or mount only 'dist' if CMD is 'node dist/index.js'
+      - ./user-service/src:/usr/src/app/src 
+    # If using nodemon inside container for dev, command might be:
+    # command: npm run dev 
+    # But Dockerfile CMD is "npm start" for production builds.
+    # For dev with nodemon on host, Docker just runs the built "npm start".
+    # If nodemon is run inside container, ensure ts-node and typescript are not just devDependencies.
+
+  device-service:
+    build: ./device-service
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./.env
+    volumes:
+      - ./device-service/src:/usr/src/app/src
+
+  farm-crop-service:
+    build: ./farm-crop-service
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./.env
+    volumes:
+      - ./farm-crop-service/src:/usr/src/app/src
+
+  alerts-service:
+    build: ./alerts-service
+    ports:
+      - "3004:3004"
+    env_file:
+      - ./.env
+    volumes:
+      - ./alerts-service/src:/usr/src/app/src
+
+  reports-analytics-service:
+    build: ./reports-analytics-service
+    ports:
+      - "3005:3005"
+    env_file:
+      - ./.env
+    volumes:
+      - ./reports-analytics-service/src:/usr/src/app/src
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "3006:3006"
+    env_file:
+      - ./.env
+    volumes:
+      - ./notification-service/src:/usr/src/app/src
+
+# Note: This docker-compose.yml assumes your Neon database is external.
+# If you were running PostgreSQL in Docker, you'd add a 'postgres' service here
+# and link other services to it.
+
+# For development with nodemon and live reloading inside containers:
+# The Dockerfiles are set up for production builds (npm start).
+# To use nodemon for development inside containers, you'd typically:
+# 1. Change CMD in Dockerfile to "npm run dev".
+# 2. Ensure devDependencies (like nodemon, ts-node, typescript) are copied and installed in the image.
+# 3. The volume mount for 'src' helps reflect code changes.
+# However, a common pattern is to run `npm run build` and then `npm start` in the container,
+# and rely on restarting the docker-compose service for changes during development,
+# or use host-based nodemon if not fully containerizing the dev workflow.
+# The current setup is geared towards building production-like images.

@@ -1,0 +1,93 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 25% 97%;
+    --foreground: 160 25% 15%;
+
+    --card: 150 25% 99%;
+    --card-foreground: 160 25% 15%;
+
+    --popover: 150 25% 99%;
+    --popover-foreground: 160 25% 15%;
+
+    --primary: 155 60% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 180 50% 85%;
+    --secondary-foreground: 180 60% 25%;
+
+    --muted: 180 5% 90%;
+    --muted-foreground: 180 5% 40%;
+
+    --accent: 180 60% 65%;
+    --accent-foreground: 180 80% 15%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 85%;
+    --input: 150 20% 85%;
+    --ring: 150 60% 40%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 150 60% 40%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 150 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 50% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 150 50% 35%;
+    --sidebar-ring: 150 70% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    scrollbar-width: none;
+  }
+
+  /* Glassmorphism styles */
+  .glass {
+    @apply bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg;
+  }
+  
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/40 shadow-md rounded-2xl;
+  }
+  
+  .glass-panel {
+    @apply bg-white/30 backdrop-blur-sm border border-white/30;
+  }
+  
+  /* Hide scrollbars but keep functionality */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-smartel-green-500 to-smartel-teal-500 bg-clip-text text-transparent;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}
