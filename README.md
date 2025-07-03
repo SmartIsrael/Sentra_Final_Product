@@ -112,7 +112,7 @@ A Python-based service that provides AI-powered insights.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/__/sentra.git
+   git clone https://github.com/SmartIsrael/Sentra_Final_Product
    cd sentra
    ```
 
