@@ -184,3 +184,13 @@ The model's API will be available at `http://localhost:8000`.
 
 Each component may require specific environment variables. Please refer to the respective directories for `.env.example` files or further documentation on required environment variables. A central `.env` file in `backend-services` is used for all microservices.
 # smartel-capstone
+
+
+## Testing 
+
+Each test file screenshot can be observed below, the testing used was a unit testing approach as well as integration testing 
+
+![Testing](readme-images/img1.jpg)
+![Testing](readme-images/img2.jpg)
+![Testing](readme-images/img3.jpg)
+![Testing](readme-images/img4.jpg)
