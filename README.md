@@ -2,6 +2,8 @@ LINK TO MY VIDEO PRESENTATION: https://www.loom.com/share/ef98a793899e414ebba8fa
 
 LINK TO MY ANDROID APP PACKAGE: https://drive.google.com/file/d/1d80EYiXnEPMB1La55TLqBFFG_Od0CKM-/view?usp=sharing
 
+LINK TO MY WEDAPP ADMIN DASHBOARD: https://admin.sentraimpact.org
+
 # Sentra: AI-Powered Agricultural Intelligence Platform
 
 Sentra is a comprehensive, multi-component platform designed to provide advanced agricultural intelligence. It leverages a microservices-based backend, a web-based administrative dashboard, a mobile application for farmers, and a sophisticated machine learning model for crop health analysis.
